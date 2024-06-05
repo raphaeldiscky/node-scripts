@@ -1,0 +1,145 @@
+{
+  "mongoId": "665fd7b8602b85efb42e5f13",
+  "store": "6577142c338bfd38f9a79d2a",
+  "totalUsed": 0,
+  "totalSpent": 0,
+  "totalItems": 0,
+  "summary": {
+    "text": "{value} off entire order",
+    "values": {
+      "value": 21321,
+      "type": "percent"
+    },
+    "more": []
+  },
+  "code": "test_ingestion",
+  "branches": [
+    "657714d2d07a54b2fbdeead5",
+    "6638bdb7a3109288fc033765"
+  ],
+  "description": "dsadas",
+  "availability": [
+    "web"
+  ],
+  "active": true,
+  "couponType": {
+    "type": "order_total",
+    "details": {
+      "excludeCategories": {
+        "status": true,
+        "values": [
+          "6623f3881ac8f93747f0d928"
+        ]
+      },
+      "minimumSpend": {
+        "status": false,
+        "value": 0
+      },
+      "maxValue": {
+        "status": false,
+        "value": 0
+      },
+      "amount": {
+        "type": "percent",
+        "value": 21321
+      },
+      "orderMethod": "all",
+      "conditions": [],
+      "customerGets": {
+        "products": []
+      },
+      "target": {
+        "products": [],
+        "categories": []
+      },
+      "minimumQuantity": {
+        "status": false
+      },
+      "maxQuantity": {
+        "status": false
+      }
+    }
+  },
+  "activeDates": {
+    "type": "schedule",
+    "details": {
+      "activeDatesSchedule": [
+        {
+          "active": true,
+          "day": "monday",
+          "fullDay": false,
+          "times": [
+            {
+              "timeStart": "00:00",
+              "timeEnd": "21:00",
+              "mongoId": "665fd7b8602b85efb42e5f15"
+            }
+          ],
+          "mongoId": "665fd7b8602b85efb42e5f14"
+        },
+        {
+          "active": false,
+          "day": "tuesday",
+          "fullDay": false,
+          "times": [],
+          "mongoId": "665fd7b8602b85efb42e5f16"
+        },
+        {
+          "active": false,
+          "day": "wednesday",
+          "fullDay": false,
+          "times": [],
+          "mongoId": "665fd7b8602b85efb42e5f17"
+        },
+        {
+          "active": true,
+          "day": "thursday",
+          "fullDay": false,
+          "times": [
+            {
+              "timeStart": "14:10",
+              "timeEnd": "17:00",
+              "mongoId": "665fd7b8602b85efb42e5f19"
+            }
+          ],
+          "mongoId": "665fd7b8602b85efb42e5f18"
+        },
+        {
+          "active": false,
+          "day": "friday",
+          "fullDay": false,
+          "times": [],
+          "mongoId": "665fd7b8602b85efb42e5f1a"
+        },
+        {
+          "active": false,
+          "day": "saturday",
+          "fullDay": false,
+          "times": [],
+          "mongoId": "665fd7b8602b85efb42e5f1b"
+        },
+        {
+          "active": false,
+          "day": "sunday",
+          "fullDay": false,
+          "times": [],
+          "mongoId": "665fd7b8602b85efb42e5f1c"
+        }
+      ],
+      "periods": []
+    }
+  },
+  "limits": {
+    "usage": {
+      "status": true,
+      "value": 213
+    },
+    "perCustomer": {
+      "status": false,
+      "value": 0
+    }
+  },
+  "createdAt": "2024-06-05T03:12:56.214Z",
+  "updatedAt": "2024-06-05T03:12:56.214Z",
+  "__v": 0
+}
