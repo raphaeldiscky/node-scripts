@@ -1,23 +1,29 @@
 import fs from "fs";
+import path from "path";
 import { PATHS } from "./paths";
 
 function main() {
-  const jsonPath = `${PATHS.SOURCE}/mongo.json`;
+  const sourceDir = `${PATHS.SOURCE}/camelCase`;
+  const targetDir = `${PATHS.TARGET}/camelCase`;
 
-  // Check if the JSON file exists
-  if (!fs.existsSync(jsonPath)) {
-    console.log("JSON file does not exist");
-    process.exit(1);
-  }
+  const files = fs.readdirSync(sourceDir);
 
-  const obj = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
+  files.forEach((file) => {
+    if (path.extname(file) === ".json") {
+      const jsonPath = path.join(sourceDir, file);
 
-  const camelCasedObj = camelCaseifyMongoObjectKeys(obj);
+      if (!fs.existsSync(jsonPath)) {
+        console.log("JSON file does not exist");
+        process.exit(1);
+      }
+      const obj = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
 
-  fs.writeFileSync(
-    `${PATHS.TARGET}/camelCase.json`,
-    JSON.stringify(camelCasedObj, null, 2)
-  );
+      const camelCasedObj = camelCaseifyMongoObjectKeys(obj);
+
+      const targetFilePath = path.join(targetDir, file);
+      fs.writeFileSync(targetFilePath, JSON.stringify(camelCasedObj, null, 2));
+    }
+  });
 }
 
 function camelCaseifyMongoObjectKeys(obj: object): object {

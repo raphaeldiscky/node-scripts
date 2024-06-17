@@ -1,28 +1,33 @@
 import fs from "fs";
+import path from "path";
 import { Parser } from "@json2csv/plainjs";
 import { format } from "date-fns";
 import { PATHS } from "./paths";
 
 const main = () => {
-  const fileName = "Pizza Order Summary (4 - 10 March 2024)"; // Corrected filename
+  const sourceDir = `${PATHS.SOURCE}/exportJsonToCsv`;
+  const targetDir = `${PATHS.TARGET}/exportJsonToCsv`;
 
-  const jsonPath = `${PATHS.SOURCE}/upsell.orders.json`;
+  const files = fs.readdirSync(sourceDir);
 
-  // Check if the JSON file exists
-  if (!fs.existsSync(jsonPath)) {
-    console.log("JSON file does not exist");
-    process.exit(1);
-  }
+  files.forEach((file) => {
+    if (path.extname(file) === ".json") {
+      const jsonPath = path.join(sourceDir, file);
 
-  const json = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
+      if (!fs.existsSync(jsonPath)) {
+        console.log("JSON file does not exist");
+        process.exit(1);
+      }
+      const json = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
 
-  const csv = exportJsonToCsv(json);
-
-  fs.writeFileSync(`${PATHS.TARGET}/${fileName}.csv`, csv, {
-    encoding: "utf8",
+      const csv = exportJsonToCsv(json);
+      const fileName = path.parse(file).name;
+      const targetFilePath = path.join(targetDir, `${fileName}.csv`);
+      fs.writeFileSync(targetFilePath, csv, {
+        encoding: "utf8",
+      });
+    }
   });
-
-  console.log(`CSV file "${fileName}.csv" has been created.`);
 };
 
 const exportJsonToCsv = (json: object[]) => {
