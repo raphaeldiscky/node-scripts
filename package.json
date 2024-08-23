@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "@json2csv/plainjs": "^7.0.6",
+    "@sapphire/snowflake": "^3.5.3",
     "blob": "^0.1.0",
     "date-fns": "^3.3.1",
     "lodash": "^4.17.21",
