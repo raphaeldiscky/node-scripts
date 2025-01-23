@@ -1,0 +1,6 @@
+"Date","Branch","Item","Debit","Credit"
+"08/11/2024","Branch 1","Aur",2000,
+"08/11/2024","Branch 1","Netgiro",1000,
+"08/11/2024","Branch 1","Paypal",2400,
+"08/11/2024","Branch 1","Sales: Tax 11%",,4000
+"08/11/2024","Branch 1","Sales: Tax 24%",,1400

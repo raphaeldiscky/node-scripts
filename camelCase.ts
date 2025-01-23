@@ -76,7 +76,7 @@ function camelCaseifyMongoObjectKeys(obj: object): object {
 }
 
 function snakeCaseToCamelCase(str: string) {
-  return str.replace(/([-_][a-z])/g, (group) =>
+  return str.replace(/([-_][a-z0-9])/gi, (group) =>
     group.toUpperCase().replace("-", "").replace("_", "")
   );
 }
